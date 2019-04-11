@@ -389,10 +389,43 @@ namespace AEV6
             return ""; //Si no se es admin al salir devolverá un string vacio
         }
 
-        //    public void AgregarEmpleado(string NIF, string nombre, string apellido, string calve)
-        //    {
+        public void AgregarEmpleado(string NIF, string nombre, string apellido, bool admin, string calve)
+        {
+            while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
+            {
+                NIF = Interaction.InputBox("Introduce un NIF correcto", "DNI Incorrecto", "", 500, 300);
+                if (NIF == "")
+                {
+                    break;
+                }
+            }
+            if (NIF == "")
+            {
 
-        //    }
+            }
+            else
+            {
+                if (bdatos.AbrirConexion())
+                {
+                    MySqlConnection conexion = bdatos.Conexion;
+                    string consulta = String.Format("insert into usuarios values('{0}', {1}, {2}, {3}, {4}, 0)", NIF, nombre, apellido, admin, clave);
+                    MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                    int res = comando.ExecuteNonQuery();
+                    if (res >= 0)
+                    {
+                        MessageBox.Show("Usuario agregado con éxito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al agregar usuario");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Erro al conectar con la base de datos");
+                }
+            }
+        }
 
         //    public void EliminarEmpleado(string NIF)
         //    {
