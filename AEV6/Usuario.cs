@@ -299,6 +299,7 @@ namespace AEV6
                         bool hecho = false;
                         do
                         {
+                            reader.Close();
                             if (hecho) //Si ha hecho un ciclo aviso de que la calve es incorrecat
                             {
                                 claveproporcionada = Interaction.InputBox("Clave", "Clave incorrecta, introduzca su clave de administrador", "", 500, 300);
@@ -323,12 +324,10 @@ namespace AEV6
                             reader = comando.ExecuteReader();
                             while (reader.Read()) //Saco el campo admin
                             {
-                                MessageBox.Show(reader.GetBoolean(0).ToString());
                                 admin = reader.GetBoolean(0);
                             }
                             hecho = true; //Cuando hago el primer ciclo pongo hecho a true
                         } while (claveproporcionada != claveadmin && claveproporcionada != ""); //Hago esto mientras que la calve sea distinta a la proporcionada y que la clave sea vacia
-                        MessageBox.Show(admin.ToString());
                         if (claveproporcionada == "" || admin == false) //Si la clave esta vacia o admin es false es que ha cancelado o no es administrador y se avisa de los sucedido
                         {
                             MessageBox.Show("No eres administrador");
