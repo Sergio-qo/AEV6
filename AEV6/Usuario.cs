@@ -408,7 +408,7 @@ namespace AEV6
                 if (bdatos.AbrirConexion())
                 {
                     MySqlConnection conexion = bdatos.Conexion;
-                    string consulta = String.Format("insert into usuarios values('{0}', {1}, {2}, {3}, {4}, 0)", NIF, nombre, apellido, admin, clave);
+                    string consulta = String.Format("insert into usuarios values('{0}', '{1}', '{2}', {3}, '{4}', 0)", NIF, nombre, apellido, admin, clave);
                     MySqlCommand comando = new MySqlCommand(consulta, conexion);
                     int res = comando.ExecuteNonQuery();
                     if (res >= 0)
