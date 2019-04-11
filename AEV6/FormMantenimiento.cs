@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AEV6
+{
+    public partial class FormMantenimiento : Form
+    {
+        public FormMantenimiento()
+        {
+            InitializeComponent();
+            timerRelojMantenimiento.Enabled = true;  //Inicializamos el timer para que se active nada más encender la aplicación
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        //Controla que al marcar la casilla de Administrador desbloquea el campo para introducir una Clave.
+        private void ckbAdministradorAltaMantenimiento_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbAdministradorAltaMantenimiento.Checked)
+            {
+                txtClaveAltaMantenimiento.Enabled = true;
+            }
+            else txtClaveAltaMantenimiento.Enabled = false; ;
+
+        }
+
+        private void btnSalirMantenimiento_Click(object sender, EventArgs e)
+        {
+            FormPrincipal formularioPrincipal = new FormPrincipal();
+            formularioPrincipal.Show();
+
+            this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblRelojMantenimiento.Text = DateTime.Now.ToString();
+        }
+    }
+}
