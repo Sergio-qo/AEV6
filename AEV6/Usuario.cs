@@ -106,12 +106,12 @@ namespace AEV6
 
                     consulta = String.Format("select * from usuarios where nif='{0}'", NIF);
                     comando = new MySqlCommand(consulta, conexion);
-                    res = comando.ExecuteNonQuery();
+                    MySqlDataReader reader = comando.ExecuteReader();
 
                     //Si la consulta no devuelve ningún valor o el nif es incorrecto entra en el WHILE
-                    while (res <= 0 || ComprobarNif(NIF) == false)
+                    while (reader.HasRows == false || ComprobarNif(NIF) == false)
                     {
-                        
+                        reader.Close();
                         //Si el nif es correcto, significa que el nif no está en la bbdd (porque si no el ExecuteNonQuery hubiese devuelto algún valor)
                         if (ComprobarNif(NIF))
                         {
@@ -130,6 +130,7 @@ namespace AEV6
                             }
                         }
                     }
+                    reader.Close();
 
                     //Si el ExecuteNonQuery devuelve un valor (O sea hay registros en la tabla que coincidan con ese nif)
                     if(NIF == "")
@@ -141,14 +142,15 @@ namespace AEV6
                         
                             consulta = String.Format("select * from usuarios where nif='{0}' and estado=true", NIF);
                             comando = new MySqlCommand(consulta, conexion);
-                            res = comando.ExecuteNonQuery();
+                            reader = comando.ExecuteReader();
 
-                        if(res >= 1)
+                        if(reader.HasRows)
                         {
                             MessageBox.Show("El usuario ya está dentro");
                         }
                         else
                         {
+                            reader.Close();
                             consulta = String.Format("update usuarios set estado=true");
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();
@@ -189,12 +191,12 @@ namespace AEV6
 
                     consulta = String.Format("select * from usuarios where nif='{0}'", NIF);
                     comando = new MySqlCommand(consulta, conexion);
-                    res = comando.ExecuteNonQuery();
+                    MySqlDataReader reader = comando.ExecuteReader();
 
                     //Si la consulta no devuelve ningún valor o el nif es incorrecto entra en el WHILE
-                    while (res <= 0 || ComprobarNif(NIF) == false)
+                    while (reader.HasRows == false || ComprobarNif(NIF) == false)
                     {
-
+                        reader.Close();
                         //Si el nif es correcto, significa que el nif no está en la bbdd (porque si no el ExecuteNonQuery hubiese devuelto algún valor)
                         if (ComprobarNif(NIF))
                         {
@@ -213,7 +215,7 @@ namespace AEV6
                             }
                         }
                     }
-
+                    reader.Close();
                     //Si el ExecuteNonQuery devuelve un valor (O sea hay registros en la tabla que coincidan con ese nif)
                     if (NIF == "")
                     {
@@ -224,14 +226,15 @@ namespace AEV6
 
                         consulta = String.Format("select * from usuarios where nif='{0}' and estado=false", NIF);
                         comando = new MySqlCommand(consulta, conexion);
-                        res = comando.ExecuteNonQuery();
+                        reader = comando.ExecuteReader();
 
-                        if (res >= 1)
+                        if (reader.HasRows)
                         {
                             MessageBox.Show("El usuario no está dentro");
                         }
                         else
                         {
+                            reader.Close();
                             consulta = String.Format("update usuarios set estado=false");
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();
