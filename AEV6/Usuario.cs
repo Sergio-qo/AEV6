@@ -19,11 +19,11 @@ namespace AEV6
         private ConexionBD bdatos = new ConexionBD();
 
         //Propiedades de acceso de los atributos.
-        public bool Admin { get {return this.admin; } set { this.admin = value; } }
+        public bool Admin { get {return this.admin; }}
         public string Nif { get { return this.NIF; } set { this.NIF = value; } }
         public string Nombre { get { return this.nombre; } set { this.nombre = value; } }
         public string Apellido { get { return this.apellido; } set { this.apellido = value; } }
-        public string Clave { get { return this.clave; } set { this.clave = value; } }
+        public string Clave { get { return this.clave; }}
 
         //Primer constructor sin necesidad de pasar parametros.
         public Usuario()
@@ -32,16 +32,55 @@ namespace AEV6
         }
 
         //Segundo constructor pasando parámetros básicos
-        public Usuario(string nif, string nombre, string apellido)
+        public Usuario(string NIF, string nombre, string apellido)
         {
-            this.NIF = nif;
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.admin = false;
-            this.clave = "";
+            while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
+            {
+                NIF = Interaction.InputBox("Introduce un NIF correcto", "DNI Incorrecto", "", 500, 300);
+                if (NIF == "")
+                {
+                    break;
+                }
+            }
+            if (NIF == "")
+            {
+
+            }
+            else
+            {
+                this.NIF = NIF;
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.admin = false;
+                this.clave = "";
+            }
         }
 
-        
+        //Tercer constructor para crear un administrador
+        public Usuario(string NIF, string nombre, string apellido, string clave)
+        {
+            while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
+            {
+                NIF = Interaction.InputBox("Introduce un NIF correcto", "DNI Incorrecto", "", 500, 300);
+                if (NIF == "")
+                {
+                    break;
+                }
+            }
+            if (NIF == "")
+            {
+
+            }
+            else
+            {
+                this.NIF = NIF;
+                this.nombre = nombre;
+                this.apellido = apellido;
+                this.admin = true;
+                this.clave = clave;
+            }
+        }
+
 
         public void Entrada(string NIF)
         {
