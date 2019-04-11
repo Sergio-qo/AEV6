@@ -237,6 +237,7 @@ namespace AEV6
 
         public string Mantenimiento(string NIF)
         {
+            bool admin = false;
             while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
             {
                 NIF = Interaction.InputBox("Introduce un NIF correcto", "DNI Incorrecto", "", 500, 300);
@@ -259,10 +260,10 @@ namespace AEV6
 
                     consulta = String.Format("select * from usuarios where nif='{0}'", NIF);
                     comando = new MySqlCommand(consulta, conexion);
-                    res = comando.ExecuteNonQuery();
+                    MySqlDataReader reader = comando.ExecuteReader();
 
                     //Si la consulta no devuelve ningún valor o el nif es incorrecto entra en el WHILE
-                    while (res <= 0 || ComprobarNif(NIF) == false)
+                    while (reader.HasRows ==false || ComprobarNif(NIF) == false)
                     {
 
                         //Si el nif es correcto, significa que el nif no está en la bbdd (porque si no el ExecuteNonQuery hubiese devuelto algún valor)
@@ -282,7 +283,9 @@ namespace AEV6
                                 break;
                             }
                         }
+                        reader.Close();
                     }
+                    reader.Close();
 
                     //Si el ExecuteNonQuery devuelve un valor (O sea hay registros en la tabla que coincidan con ese nif)
                     if (NIF == "")
@@ -306,26 +309,26 @@ namespace AEV6
                             }
 
                             //Hago una consulta que saque la calve de un nif
-                            consulta = String.Format("select clave from usuarios wher nif = '{0}'", NIF);
+                            consulta = String.Format("select clave from usuarios where nif = '{0}'", NIF);
                             comando = new MySqlCommand(consulta, conexion);
-                            MySqlDataReader reader = comando.ExecuteReader();
+                            reader = comando.ExecuteReader();
                             while (reader.Read()) //Saco la clave del admin
                             {
                                 claveadmin = reader.GetString(0);
                             }
+                            reader.Close();
 
-
-                            consulta = String.Format("select admin from usuarios wher nif = '{0}'", NIF);
+                            consulta = String.Format("select admin from usuarios where nif = '{0}'", NIF);
                             comando = new MySqlCommand(consulta, conexion);
                             reader = comando.ExecuteReader();
-                            bool admin;
                             while (reader.Read()) //Saco el campo admin
                             {
+                                MessageBox.Show(reader.GetBoolean(0).ToString());
                                 admin = reader.GetBoolean(0);
                             }
                             hecho = true; //Cuando hago el primer ciclo pongo hecho a true
-                        } while (claveproporcionada != claveadmin && claveproporcionada == ""); //Hago esto mientras que la calve sea distinta a la proporcionada y que la clave sea vacia
-
+                        } while (claveproporcionada != claveadmin && claveproporcionada != ""); //Hago esto mientras que la calve sea distinta a la proporcionada y que la clave sea vacia
+                        MessageBox.Show(admin.ToString());
                         if (claveproporcionada == "" || admin == false) //Si la clave esta vacia o admin es false es que ha cancelado o no es administrador y se avisa de los sucedido
                         {
                             MessageBox.Show("No eres administrador");

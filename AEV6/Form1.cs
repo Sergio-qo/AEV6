@@ -40,11 +40,18 @@ namespace AEV6
 
         private void btnAccesoMantenimiento_Click(object sender, EventArgs e)
         {
-            this.Hide(); //Se cierra el formulario actual (El principal)
+            Usuario usu = new Usuario();
 
-            //Creamos objeto de "FormMantenimiento" para instanciarlo y así poder llamar al método SHOW.
-            FormMantenimiento formularioMantenimiento = new FormMantenimiento();
-            formularioMantenimiento.Show();
+            if (usu.Mantenimiento(txtNif.Text) != "")
+            {
+                this.Hide(); //Se cierra el formulario actual (El principal)
+
+                //Creamos objeto de "FormMantenimiento" para instanciarlo y así poder llamar al método SHOW.
+                FormMantenimiento formularioMantenimiento = new FormMantenimiento();
+                formularioMantenimiento.Show();
+            }
+
+            
 
             
 
