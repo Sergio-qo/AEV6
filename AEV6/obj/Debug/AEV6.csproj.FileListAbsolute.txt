@@ -73,3 +73,17 @@ C:\Users\jomolo03\Desktop\Actividad-Proyecto\AEV6\obj\Debug\AEV6.csproj.CoreComp
 C:\Users\jomolo03\Desktop\Actividad-Proyecto\AEV6\obj\Debug\AEV6.csproj.CopyComplete
 C:\Users\jomolo03\Desktop\Actividad-Proyecto\AEV6\obj\Debug\AEV6.exe
 C:\Users\jomolo03\Desktop\Actividad-Proyecto\AEV6\obj\Debug\AEV6.pdb
+E:\Sistema\Desktop\aev6\AEV6\bin\Debug\AEV6.exe.config
+E:\Sistema\Desktop\aev6\AEV6\bin\Debug\AEV6.exe
+E:\Sistema\Desktop\aev6\AEV6\bin\Debug\AEV6.pdb
+E:\Sistema\Desktop\aev6\AEV6\bin\Debug\Google.Protobuf.dll
+E:\Sistema\Desktop\aev6\AEV6\bin\Debug\MySql.Data.xml
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.csprojAssemblyReference.cache
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.FormPrincipal.resources
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.FormMantenimiento.resources
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.Properties.Resources.resources
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.csproj.GenerateResource.cache
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.csproj.CoreCompileInputs.cache
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.csproj.CopyComplete
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.exe
+E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.pdb

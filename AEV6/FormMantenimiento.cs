@@ -47,5 +47,16 @@ namespace AEV6
         {
             lblRelojMantenimiento.Text = DateTime.Now.ToString();
         }
+
+        private void btnAgregarEmpleado_Click(object sender, EventArgs e)
+        {
+            Usuario usu = new Usuario();
+            bool admin = false;
+            if (ckbAdministradorAltaMantenimiento.Checked)
+            {
+                admin = true;
+            }
+            usu.AgregarEmpleado(txtNifAltaEmpleado.Text, txtNombreAltaMantenimiento.Text, txtApellidoAltaEmpleado.Text, admin, txtClaveAltaMantenimiento.Text);
+        }
     }
 }
