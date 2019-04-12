@@ -39,12 +39,13 @@ namespace AEV6
                 NIF = Interaction.InputBox("Introduce un NIF correcto", "DNI Incorrecto", "", 500, 300);
                 if (NIF == "")
                 {
+                    //Rompe, se sale
                     break;
                 }
             }
             if (NIF == "")
             {
-
+                //No hace nada, se sale
             }
             else
             {
@@ -82,6 +83,13 @@ namespace AEV6
         }
 
 
+
+
+
+
+
+
+
         public void Entrada(string NIF)
         {
             while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
@@ -101,12 +109,12 @@ namespace AEV6
                 {
                     MySqlConnection conexion = bdatos.Conexion; //Le indicamos los datos de la BBDD a la que va a hacer la consulta
                     string consulta;    //Variable para guardar la consulta SQL
-                    MySqlCommand comando;
+                    MySqlCommand comando;   //Aquí guardamos la bbdd y la consulta
                     int res;
 
                     consulta = String.Format("select * from usuarios where nif='{0}'", NIF);
                     comando = new MySqlCommand(consulta, conexion);
-                    MySqlDataReader reader = comando.ExecuteReader();
+                    MySqlDataReader reader = comando.ExecuteReader();   //ExecuterReader devuelve la lista virtual de los datos que muestra la consulta que hemos hecho.
 
                     //Si la consulta no devuelve ningún valor o el nif es incorrecto entra en el WHILE
                     while (reader.HasRows == false || ComprobarNif(NIF) == false)
@@ -144,16 +152,18 @@ namespace AEV6
                             comando = new MySqlCommand(consulta, conexion);
                             reader = comando.ExecuteReader();
 
-                        if(reader.HasRows)
+                        if(reader.HasRows)  //Si el ExecuteReader tiene lineas en la lista virtual significa que ese usuario con ese nif ya está dentro
                         {
                             MessageBox.Show("El usuario ya está dentro");
                         }
                         else
                         {
+                            //Si no actualiza la bbdd poniendo el estado a true de ese usuario con ese nif
+                        
                             reader.Close();
-                            consulta = String.Format("update usuarios set estado=true");
+                            consulta = String.Format("update usuarios set estado=true where nif='{0}'",NIF);    //No sería update usuarios set estado=true where nif=loquesea
                             comando = new MySqlCommand(consulta, conexion);
-                            res = comando.ExecuteNonQuery();
+                            res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Bienvenido");
                         }                        
                     }
@@ -166,6 +176,15 @@ namespace AEV6
             }
             
         }
+
+
+
+
+
+
+
+
+
 
         public void Salida(string NIF)
         {
@@ -220,7 +239,7 @@ namespace AEV6
                     if (NIF == "")
                     {
 
-                    }
+                    }   
                     else
                     {
 
@@ -235,9 +254,9 @@ namespace AEV6
                         else
                         {
                             reader.Close();
-                            consulta = String.Format("update usuarios set estado=false");
+                            consulta = String.Format("update usuarios set estado=false where nif='{0}'",NIF);
                             comando = new MySqlCommand(consulta, conexion);
-                            res = comando.ExecuteNonQuery();
+                            res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Hasta la próxima");
                         }
                     }
@@ -250,15 +269,24 @@ namespace AEV6
             }
         }
 
+
+
+
+
+
+
+
+
+
        public List<Usuario> Presencia()
        {
             List<Usuario> usus = new List<Usuario>(); //Creo la lista a devolver llena de usuarios
-            if (bdatos.AbrirConexion()) //Hago esto si funciona la conxion
+            if (bdatos.AbrirConexion()) //Hago esto si funciona la conexión
             {
                 string consulta = String.Format("select * from usuarios"); //Creo la consulta
                 MySqlConnection conexion = bdatos.Conexion; //Obtengo la conexion
                 MySqlCommand comando = new MySqlCommand(consulta, conexion); //Creo el comando a enviar
-                MySqlDataReader reader = comando.ExecuteReader(); //Creo un objeto reader con lo que devuelve execute reader del comando
+                MySqlDataReader reader = comando.ExecuteReader(); //Creo un objeto reader con lo que devuelve execute reader(lista virtual) del comando
                 while (reader.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
                 {
                     usus.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2)));
@@ -272,10 +300,24 @@ namespace AEV6
             return usus; //Devuelvo la lista de usuarios
        }
 
+
+
+
+
+
+
+
         //    public List<Usuario> Permanencia(string NIF)
         //    {
 
         //    }
+
+
+
+
+
+
+
 
         public string Mantenimiento(string NIF)
         {
@@ -342,7 +384,7 @@ namespace AEV6
                         do
                         {
                             reader.Close();
-                            if (hecho) //Si ha hecho un ciclo aviso de que la calve es incorrecat
+                            if (hecho) //Si ha hecho un ciclo aviso de que la calve es incorrecta
                             {
                                 claveproporcionada = Interaction.InputBox("Clave", "Clave incorrecta, introduzca su clave de administrador", "", 500, 300);
                             }
@@ -357,7 +399,15 @@ namespace AEV6
                             reader = comando.ExecuteReader();
                             while (reader.Read()) //Saco la clave del admin
                             {
-                                claveadmin = reader.GetString(0);
+                                if (reader.IsDBNull(0)) //Si devuelve un valor nulo
+                                {
+                                    claveadmin = "NULL";
+                                }
+                                else
+                                {
+                                    claveadmin = reader.GetString(0);
+                                }
+                                
                             }
                             reader.Close();
 
@@ -389,6 +439,14 @@ namespace AEV6
             return ""; //Si no se es admin al salir devolverá un string vacio
         }
 
+
+
+
+
+
+
+
+
         public void AgregarEmpleado(string NIF, string nombre, string apellido, bool admin, string calve)
         {
             while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
@@ -409,43 +467,140 @@ namespace AEV6
                 {
                     MySqlConnection conexion = bdatos.Conexion;
                     string consulta = String.Format("insert into usuarios values('{0}', '{1}', '{2}', {3}, '{4}', 0)", NIF, nombre, apellido, admin, clave);
+                    string consulta2 = String.Format("select nif from usuarios where nif = '{0}'", NIF);    //Consulta para comprobar si ya existe ese nif
                     MySqlCommand comando = new MySqlCommand(consulta, conexion);
-                    int res = comando.ExecuteNonQuery();
-                    if (res >= 0)
+                    MySqlCommand comando2 = new MySqlCommand(consulta2, conexion);  //Comando para la comprobación de si hay un usuario con esos datos
+
+
+                    MySqlDataReader reader = comando2.ExecuteReader();
+                    if (reader.Read())  //Si el reader devuelve algún valor es que el usuario ya está en la bbdd por lo tanto no se puede dar de alta
                     {
-                        MessageBox.Show("Usuario agregado con éxito");
+                        MessageBox.Show("El usuario ya existe");
                     }
-                    else
+                    else   //Si no si el ExecuteNonQuery devuelve un número positivo es porque ha agregado al usuario
                     {
-                        MessageBox.Show("Error al agregar usuario");
+
+                        int res = comando.ExecuteNonQuery();
+                        if (res >= 0)
+                        {
+                            MessageBox.Show("Usuario agregado con éxito");
+                        }
+                        else  //Esta parte del else creo que no hace falta
+                        {
+                            MessageBox.Show("Error al agregar usuario");
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Erro al conectar con la base de datos");
+                    MessageBox.Show("Error al conectar con la base de datos");
                 }
             }
         }
 
-        //    public void EliminarEmpleado(string NIF)
-        //    {
 
-        //    }
 
-        //    public void GenerarInforme()
-        //    {
 
-        //    }
 
-        //    public void SalirMantenimiento()
-        //    {
 
-        //    }
 
-        //    public void SalirAplicacion()
-        //    {
+        public void EliminarEmpleado(string NIF, string nombre, string apellido)
+        {
+            while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
+            {
+                NIF = Interaction.InputBox("Introduce un NIF correcto", "DNI Incorrecto", "", 500, 300);
+                if (NIF == "")
+                {
+                    break;
+                }
+            }
+            if (NIF == "")
+            {
 
-        //    }
+            }
+            else
+            {
+                if (bdatos.AbrirConexion())
+                {
+                    MySqlConnection conexion = bdatos.Conexion;
+                    string consulta = String.Format("delete * from usuarios WHERE nif = '{0}'",NIF);
+                    MySqlCommand comando = new MySqlCommand(consulta,conexion);
+
+                    int resultado = comando.ExecuteNonQuery();
+
+                    if(resultado >= 1)
+                    {
+                        MessageBox.Show("Usuario eliminado con éxito");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario no registrado");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error al conectar con la base de datos");
+                }
+            }
+        }
+
+
+
+
+
+
+        public List<Usuario> GenerarInforme()
+        {
+            
+            List<Usuario> usus = new List<Usuario>();
+
+            if (bdatos.AbrirConexion())
+            {
+                MySqlConnection conexion = bdatos.Conexion;
+                string consulta = String.Format("select * from usuarios", NIF);
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
+                    {
+                        usus.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2)));
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No hay usuarios registrados");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar con la base de datos");
+            }
+
+            return usus;
+        }
+
+
+
+
+
+        public void SalirMantenimiento()
+        {
+            FormPrincipal formularioPrincipal = new FormPrincipal();
+            formularioPrincipal.Show();
+
+        }
+
+
+
+
+
+
+
 
         //Método para comprobar si la letra del NIF es correcta
         private bool ComprobarNif(string NIF)

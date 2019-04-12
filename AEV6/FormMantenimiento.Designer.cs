@@ -53,19 +53,17 @@
             // 
             this.lblTituloMantenimiento.AutoSize = true;
             this.lblTituloMantenimiento.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloMantenimiento.Location = new System.Drawing.Point(8, 6);
-            this.lblTituloMantenimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTituloMantenimiento.Location = new System.Drawing.Point(12, 9);
             this.lblTituloMantenimiento.Name = "lblTituloMantenimiento";
-            this.lblTituloMantenimiento.Size = new System.Drawing.Size(216, 33);
+            this.lblTituloMantenimiento.Size = new System.Drawing.Size(322, 49);
             this.lblTituloMantenimiento.TabIndex = 1;
             this.lblTituloMantenimiento.Text = "MANTENIMIENTO";
             // 
             // btnSalirMantenimiento
             // 
-            this.btnSalirMantenimiento.Location = new System.Drawing.Point(6, 190);
-            this.btnSalirMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalirMantenimiento.Location = new System.Drawing.Point(9, 292);
             this.btnSalirMantenimiento.Name = "btnSalirMantenimiento";
-            this.btnSalirMantenimiento.Size = new System.Drawing.Size(109, 41);
+            this.btnSalirMantenimiento.Size = new System.Drawing.Size(164, 63);
             this.btnSalirMantenimiento.TabIndex = 25;
             this.btnSalirMantenimiento.Text = "SALIR MANTENIMIENTO";
             this.btnSalirMantenimiento.UseVisualStyleBackColor = true;
@@ -73,30 +71,29 @@
             // 
             // btnGenerarInforme
             // 
-            this.btnGenerarInforme.Location = new System.Drawing.Point(6, 133);
-            this.btnGenerarInforme.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerarInforme.Location = new System.Drawing.Point(9, 205);
             this.btnGenerarInforme.Name = "btnGenerarInforme";
-            this.btnGenerarInforme.Size = new System.Drawing.Size(109, 41);
+            this.btnGenerarInforme.Size = new System.Drawing.Size(164, 63);
             this.btnGenerarInforme.TabIndex = 24;
             this.btnGenerarInforme.Text = "GENERAR INFORME";
             this.btnGenerarInforme.UseVisualStyleBackColor = true;
+            this.btnGenerarInforme.Click += new System.EventHandler(this.btnGenerarInforme_Click);
             // 
             // btnEliminarEmpleado
             // 
-            this.btnEliminarEmpleado.Location = new System.Drawing.Point(14, 95);
-            this.btnEliminarEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminarEmpleado.Location = new System.Drawing.Point(21, 146);
             this.btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            this.btnEliminarEmpleado.Size = new System.Drawing.Size(94, 26);
+            this.btnEliminarEmpleado.Size = new System.Drawing.Size(141, 40);
             this.btnEliminarEmpleado.TabIndex = 23;
             this.btnEliminarEmpleado.Text = "ELIMINAR";
             this.btnEliminarEmpleado.UseVisualStyleBackColor = true;
+            this.btnEliminarEmpleado.Click += new System.EventHandler(this.btnEliminarEmpleado_Click);
             // 
             // btnAgregarEmpleado
             // 
-            this.btnAgregarEmpleado.Location = new System.Drawing.Point(14, 60);
-            this.btnAgregarEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarEmpleado.Location = new System.Drawing.Point(21, 92);
             this.btnAgregarEmpleado.Name = "btnAgregarEmpleado";
-            this.btnAgregarEmpleado.Size = new System.Drawing.Size(94, 26);
+            this.btnAgregarEmpleado.Size = new System.Drawing.Size(141, 40);
             this.btnAgregarEmpleado.TabIndex = 22;
             this.btnAgregarEmpleado.Text = "AGREGAR";
             this.btnAgregarEmpleado.UseVisualStyleBackColor = true;
@@ -107,10 +104,9 @@
             this.btnSalir.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSalir.Location = new System.Drawing.Point(14, 259);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Location = new System.Drawing.Point(21, 398);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(94, 26);
+            this.btnSalir.Size = new System.Drawing.Size(141, 40);
             this.btnSalir.TabIndex = 26;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -119,65 +115,58 @@
             // lblNifAltaEmpleado
             // 
             this.lblNifAltaEmpleado.AutoSize = true;
-            this.lblNifAltaEmpleado.Location = new System.Drawing.Point(181, 66);
-            this.lblNifAltaEmpleado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNifAltaEmpleado.Location = new System.Drawing.Point(272, 102);
             this.lblNifAltaEmpleado.Name = "lblNifAltaEmpleado";
-            this.lblNifAltaEmpleado.Size = new System.Drawing.Size(27, 13);
+            this.lblNifAltaEmpleado.Size = new System.Drawing.Size(39, 20);
             this.lblNifAltaEmpleado.TabIndex = 27;
             this.lblNifAltaEmpleado.Text = "NIF:";
             // 
             // txtNifAltaEmpleado
             // 
-            this.txtNifAltaEmpleado.Location = new System.Drawing.Point(231, 66);
-            this.txtNifAltaEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNifAltaEmpleado.Location = new System.Drawing.Point(346, 102);
             this.txtNifAltaEmpleado.Name = "txtNifAltaEmpleado";
-            this.txtNifAltaEmpleado.Size = new System.Drawing.Size(111, 20);
+            this.txtNifAltaEmpleado.Size = new System.Drawing.Size(164, 26);
             this.txtNifAltaEmpleado.TabIndex = 28;
             // 
             // lblApellidoAltaEmpleado
             // 
             this.lblApellidoAltaEmpleado.AutoSize = true;
-            this.lblApellidoAltaEmpleado.Location = new System.Drawing.Point(181, 140);
-            this.lblApellidoAltaEmpleado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblApellidoAltaEmpleado.Location = new System.Drawing.Point(272, 215);
             this.lblApellidoAltaEmpleado.Name = "lblApellidoAltaEmpleado";
-            this.lblApellidoAltaEmpleado.Size = new System.Drawing.Size(47, 13);
+            this.lblApellidoAltaEmpleado.Size = new System.Drawing.Size(69, 20);
             this.lblApellidoAltaEmpleado.TabIndex = 29;
             this.lblApellidoAltaEmpleado.Text = "Apellido:";
             // 
             // txtApellidoAltaEmpleado
             // 
-            this.txtApellidoAltaEmpleado.Location = new System.Drawing.Point(231, 140);
-            this.txtApellidoAltaEmpleado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApellidoAltaEmpleado.Location = new System.Drawing.Point(346, 215);
             this.txtApellidoAltaEmpleado.Name = "txtApellidoAltaEmpleado";
-            this.txtApellidoAltaEmpleado.Size = new System.Drawing.Size(111, 20);
+            this.txtApellidoAltaEmpleado.Size = new System.Drawing.Size(164, 26);
             this.txtApellidoAltaEmpleado.TabIndex = 30;
             // 
             // lblClaveAltaMantenimiento
             // 
             this.lblClaveAltaMantenimiento.AutoSize = true;
-            this.lblClaveAltaMantenimiento.Location = new System.Drawing.Point(306, 197);
-            this.lblClaveAltaMantenimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClaveAltaMantenimiento.Location = new System.Drawing.Point(459, 303);
             this.lblClaveAltaMantenimiento.Name = "lblClaveAltaMantenimiento";
-            this.lblClaveAltaMantenimiento.Size = new System.Drawing.Size(37, 13);
+            this.lblClaveAltaMantenimiento.Size = new System.Drawing.Size(52, 20);
             this.lblClaveAltaMantenimiento.TabIndex = 31;
             this.lblClaveAltaMantenimiento.Text = "Clave:";
             // 
             // txtClaveAltaMantenimiento
             // 
             this.txtClaveAltaMantenimiento.Enabled = false;
-            this.txtClaveAltaMantenimiento.Location = new System.Drawing.Point(345, 197);
-            this.txtClaveAltaMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtClaveAltaMantenimiento.Location = new System.Drawing.Point(518, 303);
             this.txtClaveAltaMantenimiento.Name = "txtClaveAltaMantenimiento";
-            this.txtClaveAltaMantenimiento.Size = new System.Drawing.Size(111, 20);
+            this.txtClaveAltaMantenimiento.Size = new System.Drawing.Size(164, 26);
             this.txtClaveAltaMantenimiento.TabIndex = 32;
             // 
             // ckbAdministradorAltaMantenimiento
             // 
             this.ckbAdministradorAltaMantenimiento.AutoSize = true;
-            this.ckbAdministradorAltaMantenimiento.Location = new System.Drawing.Point(183, 194);
-            this.ckbAdministradorAltaMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbAdministradorAltaMantenimiento.Location = new System.Drawing.Point(274, 298);
             this.ckbAdministradorAltaMantenimiento.Name = "ckbAdministradorAltaMantenimiento";
-            this.ckbAdministradorAltaMantenimiento.Size = new System.Drawing.Size(89, 17);
+            this.ckbAdministradorAltaMantenimiento.Size = new System.Drawing.Size(133, 24);
             this.ckbAdministradorAltaMantenimiento.TabIndex = 33;
             this.ckbAdministradorAltaMantenimiento.Text = "Administrador";
             this.ckbAdministradorAltaMantenimiento.UseVisualStyleBackColor = true;
@@ -186,28 +175,25 @@
             // lblNombreAltaMantenimiento
             // 
             this.lblNombreAltaMantenimiento.AutoSize = true;
-            this.lblNombreAltaMantenimiento.Location = new System.Drawing.Point(181, 101);
-            this.lblNombreAltaMantenimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNombreAltaMantenimiento.Location = new System.Drawing.Point(272, 155);
             this.lblNombreAltaMantenimiento.Name = "lblNombreAltaMantenimiento";
-            this.lblNombreAltaMantenimiento.Size = new System.Drawing.Size(47, 13);
+            this.lblNombreAltaMantenimiento.Size = new System.Drawing.Size(69, 20);
             this.lblNombreAltaMantenimiento.TabIndex = 34;
             this.lblNombreAltaMantenimiento.Text = "Nombre:";
             // 
             // txtNombreAltaMantenimiento
             // 
-            this.txtNombreAltaMantenimiento.Location = new System.Drawing.Point(231, 101);
-            this.txtNombreAltaMantenimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombreAltaMantenimiento.Location = new System.Drawing.Point(346, 155);
             this.txtNombreAltaMantenimiento.Name = "txtNombreAltaMantenimiento";
-            this.txtNombreAltaMantenimiento.Size = new System.Drawing.Size(111, 20);
+            this.txtNombreAltaMantenimiento.Size = new System.Drawing.Size(164, 26);
             this.txtNombreAltaMantenimiento.TabIndex = 35;
             // 
             // lblRelojMantenimiento
             // 
             this.lblRelojMantenimiento.AutoSize = true;
-            this.lblRelojMantenimiento.Location = new System.Drawing.Point(11, 38);
-            this.lblRelojMantenimiento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRelojMantenimiento.Location = new System.Drawing.Point(16, 58);
             this.lblRelojMantenimiento.Name = "lblRelojMantenimiento";
-            this.lblRelojMantenimiento.Size = new System.Drawing.Size(0, 13);
+            this.lblRelojMantenimiento.Size = new System.Drawing.Size(0, 20);
             this.lblRelojMantenimiento.TabIndex = 36;
             // 
             // timerRelojMantenimiento
@@ -217,9 +203,9 @@
             // 
             // FormMantenimiento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(800, 449);
             this.Controls.Add(this.lblRelojMantenimiento);
             this.Controls.Add(this.lblNombreAltaMantenimiento);
             this.Controls.Add(this.txtNombreAltaMantenimiento);
@@ -237,7 +223,6 @@
             this.Controls.Add(this.btnAgregarEmpleado);
             this.Controls.Add(this.lblTituloMantenimiento);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormMantenimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel Mantenimiento";

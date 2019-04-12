@@ -37,8 +37,8 @@ namespace AEV6
 
         private void btnSalirMantenimiento_Click(object sender, EventArgs e)
         {
-            FormPrincipal formularioPrincipal = new FormPrincipal();
-            formularioPrincipal.Show();
+            Usuario usu = new Usuario();
+            usu.SalirMantenimiento();
 
             this.Close();
         }
@@ -57,6 +57,23 @@ namespace AEV6
                 admin = true;
             }
             usu.AgregarEmpleado(txtNifAltaEmpleado.Text, txtNombreAltaMantenimiento.Text, txtApellidoAltaEmpleado.Text, admin, txtClaveAltaMantenimiento.Text);
+        }
+
+        private void btnEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+            Usuario usu = new Usuario();
+            usu.EliminarEmpleado(txtNifAltaEmpleado.Text, txtNombreAltaMantenimiento.Text, txtApellidoAltaEmpleado.Text);
+        }
+
+        private void btnGenerarInforme_Click(object sender, EventArgs e)
+        {
+            
+            //Se llama directamente al otro formulario que es donde se va a mostrar la información
+            FormInforme informe = new FormInforme();
+            informe.Show();
+            
+
+            
         }
     }
 }
