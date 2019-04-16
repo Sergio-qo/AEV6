@@ -16,19 +16,34 @@ namespace AEV6
         private string horaSalida;
         private bool fichado;
 
-        public void EntradaFichaje(string dia, string horaEntrada, string horaSalida)
+        public void EntradaFichaje(string dia, string horaEntrada, string horaSalida, string nif)
         {
             this.fichado = true;
             this.dia = dia;
             this.horaEntrada = horaEntrada;
             this.horaSalida = horaSalida;
+            this.nif = nif;
 
             ConexionBD conexion = new ConexionBD();
             if (conexion.AbrirConexion())
             {
-                string consulta = String.Format("insert into fichaje (nif, dia, horaEntrada, horaSalida, fichado values('{0}', '{1}', '{2}', '{3}', '{4}'))", this.nif, this.dia, this.horaEntrada, this.horaSalida, this.fichado);
+                string consulta = String.Format("select * from fichaje where nif='{0}'", this.nif);
                 MySqlCommand comando = new MySqlCommand(consulta, conexion.Conexion);
-                comando.ExecuteNonQuery();
+                MySqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    consulta = String.Format("update fichaje set horaEntrada='{0}', horaSalida='{1}', fichado={2}, dia='{3}'", this.horaEntrada, this.horaSalida, this.fichado, this.dia);
+                    comando = new MySqlCommand(consulta, conexion.Conexion);
+                    comando.ExecuteNonQuery();
+                }
+                else
+                {
+                    reader.Close();
+                    consulta = String.Format("insert into fichaje (nif, dia, horaEntrada, horaSalida, fichado) values('{0}', '{1}', '{2}', '{3}', {4})", this.nif, this.dia, this.horaEntrada, this.horaSalida, this.fichado);
+                    comando = new MySqlCommand(consulta, conexion.Conexion);
+                    comando.ExecuteNonQuery();
+                }
             }
             else
             {

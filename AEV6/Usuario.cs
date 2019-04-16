@@ -152,23 +152,22 @@ namespace AEV6
                             comando = new MySqlCommand(consulta, conexion);
                             reader = comando.ExecuteReader();
 
-                        if(reader.HasRows)  //Si el ExecuteReader tiene lineas en la lista virtual significa que ese usuario con ese nif ya está dentro
+                        if (reader.HasRows)  //Si el ExecuteReader tiene lineas en la lista virtual significa que ese usuario con ese nif ya está dentro
                         {
                             MessageBox.Show("El usuario ya está dentro");
                         }
                         else
                         {
                             //Si no actualiza la bbdd poniendo el estado a true de ese usuario con ese nif
-                        
+
                             reader.Close();
-                            consulta = String.Format("update usuarios set estado=true where nif='{0}'",NIF);    //No sería update usuarios set estado=true where nif=loquesea
+                            consulta = String.Format("update usuarios set estado=true where nif='{0}'", NIF);    //No sería update usuarios set estado=true where nif=loquesea
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Bienvenido");
+                            FIchaje fich = new FIchaje();
+                            fich.EntradaFichaje(DateAndTime.Now.ToString("dd/mm/yy"), DateAndTime.Now.ToString("hh:mm tt"), null, NIF);
                         }
-
-                        FIchaje fich = new FIchaje();
-                        //fich.EntradaFichaje();
                     }
                     bdatos.CerrarConexion(); //Cierro la conexion
                 }
