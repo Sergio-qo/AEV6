@@ -29,10 +29,16 @@
         private void InitializeComponent()
         {
             this.dgvInformeDatos = new System.Windows.Forms.DataGridView();
-            this.dgvInformeFichaje = new System.Windows.Forms.DataGridView();
             this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.APELLIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ADMIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvInformeFichaje = new System.Windows.Forms.DataGridView();
+            this.NIFFICHAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIAFICHAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HORAENTRADAFICHAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HORASALIDAFICHAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FICHADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformeDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformeFichaje)).BeginInit();
             this.SuspendLayout();
@@ -43,24 +49,15 @@
             this.dgvInformeDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NIF,
             this.NOMBRE,
-            this.APELLIDO});
-            this.dgvInformeDatos.Location = new System.Drawing.Point(8, 8);
+            this.APELLIDO,
+            this.ADMIN});
+            this.dgvInformeDatos.Location = new System.Drawing.Point(11, 38);
             this.dgvInformeDatos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInformeDatos.Name = "dgvInformeDatos";
             this.dgvInformeDatos.RowTemplate.Height = 28;
-            this.dgvInformeDatos.Size = new System.Drawing.Size(336, 168);
+            this.dgvInformeDatos.Size = new System.Drawing.Size(443, 168);
             this.dgvInformeDatos.TabIndex = 0;
             this.dgvInformeDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInformeDatos_CellContentClick);
-            // 
-            // dgvInformeFichaje
-            // 
-            this.dgvInformeFichaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInformeFichaje.Location = new System.Drawing.Point(361, 11);
-            this.dgvInformeFichaje.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvInformeFichaje.Name = "dgvInformeFichaje";
-            this.dgvInformeFichaje.RowTemplate.Height = 28;
-            this.dgvInformeFichaje.Size = new System.Drawing.Size(161, 168);
-            this.dgvInformeFichaje.TabIndex = 1;
             // 
             // NIF
             // 
@@ -77,11 +74,57 @@
             this.APELLIDO.HeaderText = "APELLIDO";
             this.APELLIDO.Name = "APELLIDO";
             // 
+            // ADMIN
+            // 
+            this.ADMIN.HeaderText = "ADMIN";
+            this.ADMIN.Name = "ADMIN";
+            // 
+            // dgvInformeFichaje
+            // 
+            this.dgvInformeFichaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInformeFichaje.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NIFFICHAJE,
+            this.DIAFICHAJE,
+            this.HORAENTRADAFICHAJE,
+            this.HORASALIDAFICHAJE,
+            this.FICHADO});
+            this.dgvInformeFichaje.Location = new System.Drawing.Point(10, 253);
+            this.dgvInformeFichaje.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvInformeFichaje.Name = "dgvInformeFichaje";
+            this.dgvInformeFichaje.RowTemplate.Height = 28;
+            this.dgvInformeFichaje.Size = new System.Drawing.Size(543, 139);
+            this.dgvInformeFichaje.TabIndex = 1;
+            // 
+            // NIFFICHAJE
+            // 
+            this.NIFFICHAJE.HeaderText = "NIF";
+            this.NIFFICHAJE.Name = "NIFFICHAJE";
+            // 
+            // DIAFICHAJE
+            // 
+            this.DIAFICHAJE.HeaderText = "DIA";
+            this.DIAFICHAJE.Name = "DIAFICHAJE";
+            // 
+            // HORAENTRADAFICHAJE
+            // 
+            this.HORAENTRADAFICHAJE.HeaderText = "HORA DE ENTRADA";
+            this.HORAENTRADAFICHAJE.Name = "HORAENTRADAFICHAJE";
+            // 
+            // HORASALIDAFICHAJE
+            // 
+            this.HORASALIDAFICHAJE.HeaderText = "HORA DE SALIDA";
+            this.HORASALIDAFICHAJE.Name = "HORASALIDAFICHAJE";
+            // 
+            // FICHADO
+            // 
+            this.FICHADO.HeaderText = "FICHADO";
+            this.FICHADO.Name = "FICHADO";
+            // 
             // FormInforme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.ClientSize = new System.Drawing.Size(564, 403);
             this.Controls.Add(this.dgvInformeFichaje);
             this.Controls.Add(this.dgvInformeDatos);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -101,5 +144,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
         private System.Windows.Forms.DataGridViewTextBoxColumn APELLIDO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ADMIN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIFFICHAJE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIAFICHAJE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HORAENTRADAFICHAJE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HORASALIDAFICHAJE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FICHADO;
     }
 }

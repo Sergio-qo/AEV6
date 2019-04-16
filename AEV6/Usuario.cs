@@ -165,7 +165,10 @@ namespace AEV6
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Bienvenido");
-                        }                        
+                        }
+
+                        FIchaje fich = new FIchaje();
+                        //fich.EntradaFichaje();
                     }
                     bdatos.CerrarConexion(); //Cierro la conexion
                 }
@@ -447,7 +450,7 @@ namespace AEV6
 
 
 
-        public void AgregarEmpleado(string NIF, string nombre, string apellido, bool admin, string calve)
+        public void AgregarEmpleado(string NIF, string nombre, string apellido, bool admin, string clave)
         {
             while (ComprobarNif(NIF) == false)  //Comprueba si el NIF introducido tiene formato correcto y letra.
             {

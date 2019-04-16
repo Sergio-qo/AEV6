@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBD.cs" />
+    <Compile Include="FIchaje.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

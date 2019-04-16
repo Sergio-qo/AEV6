@@ -64,7 +64,6 @@ namespace AEV6
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
-
             Usuario usu = new Usuario();
             usu.Entrada(txtNif.Text);
         }

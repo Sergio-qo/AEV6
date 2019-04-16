@@ -25,8 +25,11 @@ namespace AEV6
             List<Usuario> usus = new List<Usuario>();
 
             usus = usu.GenerarInforme();    //Llamamos aquí al método de generarinforme del usuario
-
-            dgvInformeDatos.Rows.Add(usus[0], usus[1], usus [2]);  //Se carga lo que devuelve el método (una lista de usuarios con sus datos) en el datagriedview de los datos
+            foreach (Usuario usuario in usus)
+            {
+                dgvInformeDatos.Rows.Add(usuario.Nif, usuario.Nombre, usuario.Apellido, usuario.Admin);
+            }
+              //Se carga lo que devuelve el método (una lista de usuarios con sus datos) en el datagriedview de los datos
 
             //Falta el datagriedview de los fichajes, cuando esté la bbdd de fichajes
         }
