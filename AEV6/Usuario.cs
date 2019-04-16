@@ -555,7 +555,7 @@ namespace AEV6
 
 
 
-        public List<Usuario> GenerarInforme()
+        public List<Usuario> GenerarInforme1()
         {
             
             List<Usuario> usus = new List<Usuario>();
@@ -585,9 +585,52 @@ namespace AEV6
             {
                 MessageBox.Show("Error al conectar con la base de datos");
             }
-
+            bdatos.AbrirConexion();
             return usus;
         }
+
+
+
+
+
+
+        public List<FIchaje> GenerarInforme2()
+        {
+
+            List<FIchaje> fichas = new List<FIchaje>();
+
+            if (bdatos.AbrirConexion())
+            {
+                MySqlConnection conexion = bdatos.Conexion;
+                string consulta = String.Format("select * from fichaje", NIF);
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
+                    {
+                        fichas.Add(new FIchaje(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetBoolean(4)));
+                        
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No hay usuarios registrados");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar con la base de datos");
+            }
+            bdatos.AbrirConexion();
+            return fichas;
+        }
+
+
+
 
 
 

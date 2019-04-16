@@ -28,6 +28,15 @@ namespace AEV6
 
         }
 
+        public FIchaje(string nif, string dia, string horaEntrada, string horaSalida, bool fichado)
+        {
+            this.nif = nif;
+            this.dia = dia;
+            this.horaEntrada = horaEntrada;
+            this.horaSalida = horaSalida;
+            this.fichado = fichado;
+        }
+
 
 
 
