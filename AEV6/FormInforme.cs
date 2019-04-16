@@ -26,9 +26,14 @@ namespace AEV6
 
             usus = usu.GenerarInforme();    //Llamamos aquí al método de generarinforme del usuario
 
-            dgvInformeDatos.DataSource = usus;  //Se carga lo que devuelve el método (una lista de usuarios con sus datos) en el datagriedview de los datos
+            dgvInformeDatos.Rows.Add(usus[0], usus[1], usus [2]);  //Se carga lo que devuelve el método (una lista de usuarios con sus datos) en el datagriedview de los datos
 
             //Falta el datagriedview de los fichajes, cuando esté la bbdd de fichajes
+        }
+
+        private void dgvInformeDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

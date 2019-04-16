@@ -151,7 +151,6 @@
             this.dtpSalida.Name = "dtpSalida";
             this.dtpSalida.Size = new System.Drawing.Size(135, 20);
             this.dtpSalida.TabIndex = 14;
-            this.dtpSalida.Visible = false;
             // 
             // dtpEntrada
             // 
@@ -162,7 +161,6 @@
             this.dtpEntrada.Name = "dtpEntrada";
             this.dtpEntrada.Size = new System.Drawing.Size(135, 20);
             this.dtpEntrada.TabIndex = 13;
-            this.dtpEntrada.Visible = false;
             // 
             // lblEntrada
             // 
@@ -173,7 +171,6 @@
             this.lblEntrada.Size = new System.Drawing.Size(47, 13);
             this.lblEntrada.TabIndex = 15;
             this.lblEntrada.Text = "Entrada:";
-            this.lblEntrada.Visible = false;
             // 
             // txtNif
             // 
@@ -192,7 +189,6 @@
             this.lblSalida.Size = new System.Drawing.Size(36, 13);
             this.lblSalida.TabIndex = 16;
             this.lblSalida.Text = "Salida";
-            this.lblSalida.Visible = false;
             // 
             // lblNif
             // 
@@ -218,7 +214,6 @@
             this.dgwPresencia.RowTemplate.Height = 28;
             this.dgwPresencia.Size = new System.Drawing.Size(295, 86);
             this.dgwPresencia.TabIndex = 17;
-            this.dgwPresencia.Visible = false;
             this.dgwPresencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Nombre
@@ -267,7 +262,6 @@
             this.dgvPermanencia.RowTemplate.Height = 28;
             this.dgvPermanencia.Size = new System.Drawing.Size(295, 107);
             this.dgvPermanencia.TabIndex = 19;
-            this.dgvPermanencia.Visible = false;
             // 
             // FechaFichaje
             // 
@@ -299,7 +293,6 @@
             this.lblPermanencia.Size = new System.Drawing.Size(93, 13);
             this.lblPermanencia.TabIndex = 20;
             this.lblPermanencia.Text = "Historial empleado";
-            this.lblPermanencia.Visible = false;
             // 
             // timerReloj
             // 
