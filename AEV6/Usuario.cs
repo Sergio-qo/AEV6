@@ -260,6 +260,8 @@ namespace AEV6
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Hasta la próxima");
+                            FIchaje fich = new FIchaje();
+                            fich.SalidaFichaje(DateAndTime.Now.ToString("dd/mm/yy"), null, DateAndTime.Now.ToString("hh:mm tt"), NIF);
                         }
                     }
                     bdatos.CerrarConexion(); //Cierro la conexion
