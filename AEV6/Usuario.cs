@@ -17,6 +17,7 @@ namespace AEV6
         private string apellido;
         private string clave;
         private ConexionBD bdatos = new ConexionBD();
+        FIchaje fich = new FIchaje();
 
         //Propiedades de acceso de los atributos.
         public bool Admin { get {return this.admin; }}
@@ -165,8 +166,8 @@ namespace AEV6
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Bienvenido");
-                            FIchaje fich = new FIchaje();
-                            fich.EntradaFichaje(DateAndTime.Now.ToString("dd/mm/yy"), DateAndTime.Now.ToString("hh:mm tt"), null, NIF);
+                            fich.HoraEntrada = DateAndTime.Now.ToString("hh:mm tt");
+                            fich.EntradaFichaje(DateAndTime.Now.ToString("dd/mm/yy"), DateAndTime.Now.ToString("hh:mm tt"), NIF);
                         }
                     }
                     bdatos.CerrarConexion(); //Cierro la conexion
@@ -260,8 +261,8 @@ namespace AEV6
                             comando = new MySqlCommand(consulta, conexion);
                             res = comando.ExecuteNonQuery();    //Esto porque?
                             MessageBox.Show("Hasta la próxima");
-                            FIchaje fich = new FIchaje();
-                            fich.SalidaFichaje(DateAndTime.Now.ToString("dd/mm/yy"), null, DateAndTime.Now.ToString("hh:mm tt"), NIF);
+
+                            fich.SalidaFichaje(DateAndTime.Now.ToString("dd/mm/yy"), DateAndTime.Now.ToString("hh:mm tt"), NIF);
                         }
                     }
                     bdatos.CerrarConexion(); //Cierro la conexion
