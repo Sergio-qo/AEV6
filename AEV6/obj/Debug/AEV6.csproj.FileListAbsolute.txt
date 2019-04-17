@@ -121,3 +121,4 @@ C:\Users\sequoc\Desktop\aev6\AEV6\obj\Debug\AEV6.csproj.CopyComplete
 C:\Users\sequoc\Desktop\aev6\AEV6\obj\Debug\AEV6.exe
 C:\Users\sequoc\Desktop\aev6\AEV6\obj\Debug\AEV6.pdb
 E:\Sistema\Desktop\aev6\AEV6\obj\Debug\AEV6.FormInforme.resources
+C:\Users\jomolo03\Desktop\Actividad-Proyecto\AEV6\obj\Debug\AEV6.FormInforme.resources

@@ -17,6 +17,7 @@ namespace AEV6
         private string apellido;
         private string clave;
         private string horaEntrada;
+        private bool fichado;
         private ConexionBD bdatos = new ConexionBD();
         FIchaje fich = new FIchaje();
 
@@ -27,11 +28,20 @@ namespace AEV6
         public string Apellido { get { return this.apellido; } set { this.apellido = value; } }
         public string Clave { get { return this.clave; }}
         public string HoraEntrada { get { return this.horaEntrada; } set { this.horaEntrada = value; } }
+        public bool Fichado { get { return this.fichado; } }
 
         //Primer constructor sin necesidad de pasar parametros.
         public Usuario()
         {
           
+        }
+
+        public Usuario(string nombre, string apellido, string horaEntrada, bool fichado)
+        {
+            this.nombre = nombre;
+            this.apellido = apellido;
+            this.horaEntrada = horaEntrada;
+            this.fichado = fichado;
         }
 
         //Segundo constructor pasando parámetros básicos
@@ -291,37 +301,38 @@ namespace AEV6
             if (bdatos.AbrirConexion()) //Hago esto si funciona la conexión
             {
 
-                string consulta1 = String.Format("Select horaEntrada from fichaje where fichado='{0}'", 1);
+                string consulta1 = String.Format("Select usuarios.nombre, usuarios.apellido, fichaje.horaEntrada, fichaje.fichado from fichaje inner join usuarios on fichaje.nif = usuarios.nif where fichado='{0}'", 1);
                 MySqlConnection conexion1 = bdatos.Conexion;
                 MySqlCommand comando1 = new MySqlCommand(consulta1, conexion1);
                 MySqlDataReader reader1 = comando1.ExecuteReader();
-                int i = 0;
                 while (reader1.Read())
                 {
-                    usus[i].horaEntrada = reader1.GetString(0);
-                    i++;
+                    usus.Add( new Usuario(reader1.GetString(0), reader1.GetString(1), reader1.GetString(2), reader1.GetBoolean(3)));
+
+
+
                 }
                 bdatos.CerrarConexion();
 
-                bdatos.AbrirConexion();
-                string consulta2 = String.Format("select nombre,apellido from usuarios where estado='{0}'",1); //Creo la consulta
-                MySqlConnection conexion2 = bdatos.Conexion; //Obtengo la conexion
-                MySqlCommand comando2 = new MySqlCommand(consulta2, conexion2); //Creo el comando a enviar
-                MySqlDataReader reader2 = comando2.ExecuteReader(); //Creo un objeto reader con lo que devuelve execute reader(lista virtual) del comando
-                i = 0;
-                while (reader2.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
-                {
-                    foreach (Usuario item in usus)
-                    {
-                        item.Nombre = reader2.GetString(0);
-                        item.Apellido = reader2.GetString(1);
-                    }
+                //bdatos.AbrirConexion();
+                //string consulta2 = String.Format("select nombre,apellido from usuarios where estado='{0}'",1); //Creo la consulta
+                //MySqlConnection conexion2 = bdatos.Conexion; //Obtengo la conexion
+                //MySqlCommand comando2 = new MySqlCommand(consulta2, conexion2); //Creo el comando a enviar
+                //MySqlDataReader reader2 = comando2.ExecuteReader(); //Creo un objeto reader con lo que devuelve execute reader(lista virtual) del comando
+                //i = 0;
+                //while (reader2.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
+                //{
+                //    //foreach (Usuario item in usus)
+                //    //{
+                //    //    item.Nombre = reader2.GetString(0);
+                //    //    item.Apellido = reader2.GetString(1);
+                //    //}
 
-                    //usus[i].Nombre = reader2.GetString(0);
-                    //usus[i].Apellido = reader2.GetString(1);
-                    //i++;
-                }
-                bdatos.CerrarConexion(); //Cierro la conexion
+                //    usus[i].Nombre = reader2.GetString(0);
+                //    usus[i].Apellido = reader2.GetString(1);
+                    
+                //}
+                //bdatos.CerrarConexion(); //Cierro la conexion
             }
             else //Sino muestro un mensaje de error
             {

@@ -83,7 +83,7 @@ namespace AEV6
 
             foreach (Usuario item in usus)
             {
-                dgwPresencia.Rows.Add(item.Nif, item.Nombre, item.Apellido);
+                dgwPresencia.Rows.Add(item.Nombre, item.Apellido, item.HoraEntrada, item.Fichado);
             }
             
         }
