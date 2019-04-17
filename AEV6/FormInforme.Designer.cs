@@ -39,6 +39,8 @@
             this.HORAENTRADAFICHAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HORASALIDAFICHAJE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FICHADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTituloInformeDatos = new System.Windows.Forms.Label();
+            this.lblDatosFichajes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformeDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformeFichaje)).BeginInit();
             this.SuspendLayout();
@@ -51,11 +53,10 @@
             this.NOMBRE,
             this.APELLIDO,
             this.ADMIN});
-            this.dgvInformeDatos.Location = new System.Drawing.Point(11, 38);
-            this.dgvInformeDatos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvInformeDatos.Location = new System.Drawing.Point(7, 42);
             this.dgvInformeDatos.Name = "dgvInformeDatos";
             this.dgvInformeDatos.RowTemplate.Height = 28;
-            this.dgvInformeDatos.Size = new System.Drawing.Size(443, 168);
+            this.dgvInformeDatos.Size = new System.Drawing.Size(664, 274);
             this.dgvInformeDatos.TabIndex = 0;
             this.dgvInformeDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInformeDatos_CellContentClick);
             // 
@@ -88,11 +89,10 @@
             this.HORAENTRADAFICHAJE,
             this.HORASALIDAFICHAJE,
             this.FICHADO});
-            this.dgvInformeFichaje.Location = new System.Drawing.Point(10, 253);
-            this.dgvInformeFichaje.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvInformeFichaje.Location = new System.Drawing.Point(-4, 385);
             this.dgvInformeFichaje.Name = "dgvInformeFichaje";
             this.dgvInformeFichaje.RowTemplate.Height = 28;
-            this.dgvInformeFichaje.Size = new System.Drawing.Size(543, 139);
+            this.dgvInformeFichaje.Size = new System.Drawing.Size(814, 256);
             this.dgvInformeFichaje.TabIndex = 1;
             // 
             // NIFFICHAJE
@@ -120,20 +120,42 @@
             this.FICHADO.HeaderText = "FICHADO";
             this.FICHADO.Name = "FICHADO";
             // 
+            // lblTituloInformeDatos
+            // 
+            this.lblTituloInformeDatos.AutoSize = true;
+            this.lblTituloInformeDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloInformeDatos.Location = new System.Drawing.Point(13, 13);
+            this.lblTituloInformeDatos.Name = "lblTituloInformeDatos";
+            this.lblTituloInformeDatos.Size = new System.Drawing.Size(200, 26);
+            this.lblTituloInformeDatos.TabIndex = 2;
+            this.lblTituloInformeDatos.Text = "Datos Empleados";
+            // 
+            // lblDatosFichajes
+            // 
+            this.lblDatosFichajes.AutoSize = true;
+            this.lblDatosFichajes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosFichajes.Location = new System.Drawing.Point(2, 356);
+            this.lblDatosFichajes.Name = "lblDatosFichajes";
+            this.lblDatosFichajes.Size = new System.Drawing.Size(170, 26);
+            this.lblDatosFichajes.TabIndex = 3;
+            this.lblDatosFichajes.Text = "Datos Fichajes";
+            // 
             // FormInforme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 403);
+            this.ClientSize = new System.Drawing.Size(833, 729);
+            this.Controls.Add(this.lblDatosFichajes);
+            this.Controls.Add(this.lblTituloInformeDatos);
             this.Controls.Add(this.dgvInformeFichaje);
             this.Controls.Add(this.dgvInformeDatos);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormInforme";
             this.Text = "FormInforme";
             this.Load += new System.EventHandler(this.FormInforme_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformeDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformeFichaje)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -150,5 +172,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HORAENTRADAFICHAJE;
         private System.Windows.Forms.DataGridViewTextBoxColumn HORASALIDAFICHAJE;
         private System.Windows.Forms.DataGridViewTextBoxColumn FICHADO;
+        private System.Windows.Forms.Label lblTituloInformeDatos;
+        private System.Windows.Forms.Label lblDatosFichajes;
     }
 }

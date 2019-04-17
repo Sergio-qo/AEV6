@@ -24,14 +24,22 @@ namespace AEV6
             Usuario usu = new Usuario();
             List<Usuario> usus = new List<Usuario>();
 
-            usus = usu.GenerarInforme();    //Llamamos aquí al método de generarinforme del usuario
+            List<FIchaje> fichas = new List<FIchaje>();
+
+            usus = usu.GenerarInforme1();    //Llamamos aquí al método de generarinforme del usuario
             foreach (Usuario usuario in usus)
             {
                 dgvInformeDatos.Rows.Add(usuario.Nif, usuario.Nombre, usuario.Apellido, usuario.Admin);
             }
-              //Se carga lo que devuelve el método (una lista de usuarios con sus datos) en el datagriedview de los datos
+            //Se carga lo que devuelve el método (una lista de usuarios con sus datos) en el datagriedview de los datos
 
-            //Falta el datagriedview de los fichajes, cuando esté la bbdd de fichajes
+
+            fichas = usu.GenerarInforme2();
+            foreach (FIchaje item in fichas)
+            {
+                dgvInformeFichaje.Rows.Add(item.Nif, item.Dia, item.HoraEntrada, item.HoraSalida, item.Fichado);
+            }
+            
         }
 
         private void dgvInformeDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
