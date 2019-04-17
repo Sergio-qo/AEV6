@@ -348,10 +348,7 @@ namespace AEV6
 
 
 
-        //    public List<Usuario> Permanencia(string NIF)
-        //    {
-
-        //    }
+        
 
 
 

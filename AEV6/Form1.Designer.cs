@@ -66,9 +66,10 @@
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(3, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(2, 6);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(503, 49);
+            this.lblTitulo.Size = new System.Drawing.Size(341, 33);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Sistema de gestión de fichaje";
             // 
@@ -76,9 +77,10 @@
             // 
             this.btnEntrada.BackColor = System.Drawing.SystemColors.Info;
             this.btnEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrada.Location = new System.Drawing.Point(15, 25);
+            this.btnEntrada.Location = new System.Drawing.Point(10, 16);
+            this.btnEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.btnEntrada.Name = "btnEntrada";
-            this.btnEntrada.Size = new System.Drawing.Size(194, 108);
+            this.btnEntrada.Size = new System.Drawing.Size(129, 70);
             this.btnEntrada.TabIndex = 1;
             this.btnEntrada.Text = "ENTRADA";
             this.btnEntrada.UseVisualStyleBackColor = false;
@@ -88,9 +90,10 @@
             // 
             this.btnSalida.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalida.Location = new System.Drawing.Point(15, 152);
+            this.btnSalida.Location = new System.Drawing.Point(10, 99);
+            this.btnSalida.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalida.Name = "btnSalida";
-            this.btnSalida.Size = new System.Drawing.Size(194, 108);
+            this.btnSalida.Size = new System.Drawing.Size(129, 70);
             this.btnSalida.TabIndex = 2;
             this.btnSalida.Text = "SALIDA";
             this.btnSalida.UseVisualStyleBackColor = false;
@@ -100,17 +103,20 @@
             // 
             this.grbFuncionalidadesBasicas.Controls.Add(this.btnEntrada);
             this.grbFuncionalidadesBasicas.Controls.Add(this.btnSalida);
-            this.grbFuncionalidadesBasicas.Location = new System.Drawing.Point(12, 112);
+            this.grbFuncionalidadesBasicas.Location = new System.Drawing.Point(8, 73);
+            this.grbFuncionalidadesBasicas.Margin = new System.Windows.Forms.Padding(2);
             this.grbFuncionalidadesBasicas.Name = "grbFuncionalidadesBasicas";
-            this.grbFuncionalidadesBasicas.Size = new System.Drawing.Size(226, 278);
+            this.grbFuncionalidadesBasicas.Padding = new System.Windows.Forms.Padding(2);
+            this.grbFuncionalidadesBasicas.Size = new System.Drawing.Size(151, 181);
             this.grbFuncionalidadesBasicas.TabIndex = 3;
             this.grbFuncionalidadesBasicas.TabStop = false;
             // 
             // btnPresencia
             // 
-            this.btnPresencia.Location = new System.Drawing.Point(273, 152);
+            this.btnPresencia.Location = new System.Drawing.Point(182, 99);
+            this.btnPresencia.Margin = new System.Windows.Forms.Padding(2);
             this.btnPresencia.Name = "btnPresencia";
-            this.btnPresencia.Size = new System.Drawing.Size(141, 40);
+            this.btnPresencia.Size = new System.Drawing.Size(94, 26);
             this.btnPresencia.TabIndex = 4;
             this.btnPresencia.Text = "PRESENCIA";
             this.btnPresencia.UseVisualStyleBackColor = true;
@@ -118,18 +124,21 @@
             // 
             // btnPermanencia
             // 
-            this.btnPermanencia.Location = new System.Drawing.Point(273, 206);
+            this.btnPermanencia.Location = new System.Drawing.Point(182, 134);
+            this.btnPermanencia.Margin = new System.Windows.Forms.Padding(2);
             this.btnPermanencia.Name = "btnPermanencia";
-            this.btnPermanencia.Size = new System.Drawing.Size(141, 40);
+            this.btnPermanencia.Size = new System.Drawing.Size(94, 26);
             this.btnPermanencia.TabIndex = 5;
             this.btnPermanencia.Text = "PERMANENCIA";
             this.btnPermanencia.UseVisualStyleBackColor = true;
+            this.btnPermanencia.Click += new System.EventHandler(this.btnPermanencia_Click);
             // 
             // btnAccesoMantenimiento
             // 
-            this.btnAccesoMantenimiento.Location = new System.Drawing.Point(261, 265);
+            this.btnAccesoMantenimiento.Location = new System.Drawing.Point(174, 172);
+            this.btnAccesoMantenimiento.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccesoMantenimiento.Name = "btnAccesoMantenimiento";
-            this.btnAccesoMantenimiento.Size = new System.Drawing.Size(164, 63);
+            this.btnAccesoMantenimiento.Size = new System.Drawing.Size(109, 41);
             this.btnAccesoMantenimiento.TabIndex = 6;
             this.btnAccesoMantenimiento.Text = "ACCESO MANTENIMIENTO";
             this.btnAccesoMantenimiento.UseVisualStyleBackColor = true;
@@ -137,53 +146,61 @@
             // 
             // dtpSalida
             // 
-            this.dtpSalida.Location = new System.Drawing.Point(590, 292);
+            this.dtpSalida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpSalida.Location = new System.Drawing.Point(393, 190);
+            this.dtpSalida.Margin = new System.Windows.Forms.Padding(2);
             this.dtpSalida.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dtpSalida.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dtpSalida.Name = "dtpSalida";
-            this.dtpSalida.Size = new System.Drawing.Size(200, 26);
+            this.dtpSalida.Size = new System.Drawing.Size(135, 20);
             this.dtpSalida.TabIndex = 14;
             // 
             // dtpEntrada
             // 
-            this.dtpEntrada.Location = new System.Drawing.Point(590, 245);
+            this.dtpEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEntrada.Location = new System.Drawing.Point(393, 159);
+            this.dtpEntrada.Margin = new System.Windows.Forms.Padding(2);
             this.dtpEntrada.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
             this.dtpEntrada.MinDate = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             this.dtpEntrada.Name = "dtpEntrada";
-            this.dtpEntrada.Size = new System.Drawing.Size(200, 26);
+            this.dtpEntrada.Size = new System.Drawing.Size(135, 20);
             this.dtpEntrada.TabIndex = 13;
             // 
             // lblEntrada
             // 
             this.lblEntrada.AutoSize = true;
-            this.lblEntrada.Location = new System.Drawing.Point(510, 245);
+            this.lblEntrada.Location = new System.Drawing.Point(340, 159);
+            this.lblEntrada.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEntrada.Name = "lblEntrada";
-            this.lblEntrada.Size = new System.Drawing.Size(70, 20);
+            this.lblEntrada.Size = new System.Drawing.Size(47, 13);
             this.lblEntrada.TabIndex = 15;
             this.lblEntrada.Text = "Entrada:";
             // 
             // txtNif
             // 
-            this.txtNif.Location = new System.Drawing.Point(555, 180);
+            this.txtNif.Location = new System.Drawing.Point(370, 117);
+            this.txtNif.Margin = new System.Windows.Forms.Padding(2);
             this.txtNif.Name = "txtNif";
-            this.txtNif.Size = new System.Drawing.Size(164, 26);
+            this.txtNif.Size = new System.Drawing.Size(111, 20);
             this.txtNif.TabIndex = 8;
             // 
             // lblSalida
             // 
             this.lblSalida.AutoSize = true;
-            this.lblSalida.Location = new System.Drawing.Point(510, 298);
+            this.lblSalida.Location = new System.Drawing.Point(340, 194);
+            this.lblSalida.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSalida.Name = "lblSalida";
-            this.lblSalida.Size = new System.Drawing.Size(53, 20);
+            this.lblSalida.Size = new System.Drawing.Size(36, 13);
             this.lblSalida.TabIndex = 16;
             this.lblSalida.Text = "Salida";
             // 
             // lblNif
             // 
             this.lblNif.AutoSize = true;
-            this.lblNif.Location = new System.Drawing.Point(510, 180);
+            this.lblNif.Location = new System.Drawing.Point(340, 117);
+            this.lblNif.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNif.Name = "lblNif";
-            this.lblNif.Size = new System.Drawing.Size(39, 20);
+            this.lblNif.Size = new System.Drawing.Size(27, 13);
             this.lblNif.TabIndex = 7;
             this.lblNif.Text = "NIF:";
             // 
@@ -195,10 +212,11 @@
             this.Apellidos,
             this.HoraEntrada,
             this.HoraSalida});
-            this.dgwPresencia.Location = new System.Drawing.Point(858, 112);
+            this.dgwPresencia.Location = new System.Drawing.Point(572, 73);
+            this.dgwPresencia.Margin = new System.Windows.Forms.Padding(2);
             this.dgwPresencia.Name = "dgwPresencia";
             this.dgwPresencia.RowTemplate.Height = 28;
-            this.dgwPresencia.Size = new System.Drawing.Size(442, 132);
+            this.dgwPresencia.Size = new System.Drawing.Size(295, 86);
             this.dgwPresencia.TabIndex = 17;
             this.dgwPresencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -226,9 +244,10 @@
             // 
             this.lblPresencia.AutoSize = true;
             this.lblPresencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresencia.Location = new System.Drawing.Point(854, 89);
+            this.lblPresencia.Location = new System.Drawing.Point(569, 58);
+            this.lblPresencia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPresencia.Name = "lblPresencia";
-            this.lblPresencia.Size = new System.Drawing.Size(285, 20);
+            this.lblPresencia.Size = new System.Drawing.Size(189, 13);
             this.lblPresencia.TabIndex = 18;
             this.lblPresencia.Text = "Empleados en la empresa actualmente";
             this.lblPresencia.Visible = false;
@@ -241,10 +260,11 @@
             this.Entrada,
             this.Salida,
             this.DuracionTotal});
-            this.dgvPermanencia.Location = new System.Drawing.Point(858, 312);
+            this.dgvPermanencia.Location = new System.Drawing.Point(572, 203);
+            this.dgvPermanencia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPermanencia.Name = "dgvPermanencia";
             this.dgvPermanencia.RowTemplate.Height = 28;
-            this.dgvPermanencia.Size = new System.Drawing.Size(442, 165);
+            this.dgvPermanencia.Size = new System.Drawing.Size(295, 107);
             this.dgvPermanencia.TabIndex = 19;
             // 
             // FechaFichaje
@@ -271,9 +291,10 @@
             // 
             this.lblPermanencia.AutoSize = true;
             this.lblPermanencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPermanencia.Location = new System.Drawing.Point(854, 289);
+            this.lblPermanencia.Location = new System.Drawing.Point(569, 188);
+            this.lblPermanencia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPermanencia.Name = "lblPermanencia";
-            this.lblPermanencia.Size = new System.Drawing.Size(140, 20);
+            this.lblPermanencia.Size = new System.Drawing.Size(93, 13);
             this.lblPermanencia.TabIndex = 20;
             this.lblPermanencia.Text = "Historial empleado";
             // 
@@ -285,16 +306,17 @@
             // lblReloj
             // 
             this.lblReloj.AutoSize = true;
-            this.lblReloj.Location = new System.Drawing.Point(22, 78);
+            this.lblReloj.Location = new System.Drawing.Point(15, 51);
+            this.lblReloj.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReloj.Name = "lblReloj";
-            this.lblReloj.Size = new System.Drawing.Size(0, 20);
+            this.lblReloj.Size = new System.Drawing.Size(0, 13);
             this.lblReloj.TabIndex = 21;
             // 
             // FormPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1341, 489);
+            this.ClientSize = new System.Drawing.Size(894, 318);
             this.Controls.Add(this.lblReloj);
             this.Controls.Add(this.lblPermanencia);
             this.Controls.Add(this.dgvPermanencia);
@@ -312,6 +334,7 @@
             this.Controls.Add(this.grbFuncionalidadesBasicas);
             this.Controls.Add(this.lblTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormPrincipal";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

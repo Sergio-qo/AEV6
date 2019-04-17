@@ -80,12 +80,22 @@ namespace AEV6
             Usuario usu = new Usuario();
             List<Usuario> usus = new List<Usuario>();
             usus=usu.Presencia();
-
+            dgwPresencia.Rows.Clear();
             foreach (Usuario item in usus)
             {
                 dgwPresencia.Rows.Add(item.Nombre, item.Apellido, item.HoraEntrada, item.Fichado);
             }
             
+        }
+
+        private void btnPermanencia_Click(object sender, EventArgs e)
+        {
+            UsuarioPermanencia up = new UsuarioPermanencia();
+
+            string HoraEntrada = dtpEntrada.Text;
+            string HoraSalida = dtpSalida.Text;
+            string Nif = txtNif.Text;
+            up.Permanencia(Nif, HoraEntrada, HoraSalida);
         }
     }
 }
