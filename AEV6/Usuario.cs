@@ -16,6 +16,7 @@ namespace AEV6
         private string nombre;
         private string apellido;
         private string clave;
+        private string horaEntrada;
         private ConexionBD bdatos = new ConexionBD();
         FIchaje fich = new FIchaje();
 
@@ -25,6 +26,7 @@ namespace AEV6
         public string Nombre { get { return this.nombre; } set { this.nombre = value; } }
         public string Apellido { get { return this.apellido; } set { this.apellido = value; } }
         public string Clave { get { return this.clave; }}
+        public string HoraEntrada { get { return this.horaEntrada; } set { this.horaEntrada = value; } }
 
         //Primer constructor sin necesidad de pasar parametros.
         public Usuario()
@@ -288,13 +290,36 @@ namespace AEV6
             List<Usuario> usus = new List<Usuario>(); //Creo la lista a devolver llena de usuarios
             if (bdatos.AbrirConexion()) //Hago esto si funciona la conexión
             {
-                string consulta = String.Format("select * from usuarios"); //Creo la consulta
-                MySqlConnection conexion = bdatos.Conexion; //Obtengo la conexion
-                MySqlCommand comando = new MySqlCommand(consulta, conexion); //Creo el comando a enviar
-                MySqlDataReader reader = comando.ExecuteReader(); //Creo un objeto reader con lo que devuelve execute reader(lista virtual) del comando
-                while (reader.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
+
+                string consulta1 = String.Format("Select horaEntrada from fichaje where fichado='{0}'", 1);
+                MySqlConnection conexion1 = bdatos.Conexion;
+                MySqlCommand comando1 = new MySqlCommand(consulta1, conexion1);
+                MySqlDataReader reader1 = comando1.ExecuteReader();
+                int i = 0;
+                while (reader1.Read())
                 {
-                    usus.Add(new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2)));
+                    usus[i].horaEntrada = reader1.GetString(0);
+                    i++;
+                }
+                bdatos.CerrarConexion();
+
+                bdatos.AbrirConexion();
+                string consulta2 = String.Format("select nombre,apellido from usuarios where estado='{0}'",1); //Creo la consulta
+                MySqlConnection conexion2 = bdatos.Conexion; //Obtengo la conexion
+                MySqlCommand comando2 = new MySqlCommand(consulta2, conexion2); //Creo el comando a enviar
+                MySqlDataReader reader2 = comando2.ExecuteReader(); //Creo un objeto reader con lo que devuelve execute reader(lista virtual) del comando
+                i = 0;
+                while (reader2.Read()) //Por cada lectura creo un usuario y lo añado a la lista con los datos de el registro que devuelve
+                {
+                    foreach (Usuario item in usus)
+                    {
+                        item.Nombre = reader2.GetString(0);
+                        item.Apellido = reader2.GetString(1);
+                    }
+
+                    //usus[i].Nombre = reader2.GetString(0);
+                    //usus[i].Apellido = reader2.GetString(1);
+                    //i++;
                 }
                 bdatos.CerrarConexion(); //Cierro la conexion
             }
@@ -585,7 +610,7 @@ namespace AEV6
             {
                 MessageBox.Show("Error al conectar con la base de datos");
             }
-            bdatos.AbrirConexion();
+            bdatos.CerrarConexion();
             return usus;
         }
 
@@ -625,7 +650,7 @@ namespace AEV6
             {
                 MessageBox.Show("Error al conectar con la base de datos");
             }
-            bdatos.AbrirConexion();
+            bdatos.CerrarConexion();
             return fichas;
         }
 

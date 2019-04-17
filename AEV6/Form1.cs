@@ -73,5 +73,19 @@ namespace AEV6
             Usuario usu = new Usuario();
             usu.Salida(txtNif.Text);
         }
+
+        private void btnPresencia_Click(object sender, EventArgs e)
+        {
+            
+            Usuario usu = new Usuario();
+            List<Usuario> usus = new List<Usuario>();
+            usus=usu.Presencia();
+
+            foreach (Usuario item in usus)
+            {
+                dgwPresencia.Rows.Add(item.Nif, item.Nombre, item.Apellido);
+            }
+            
+        }
     }
 }

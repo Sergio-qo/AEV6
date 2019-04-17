@@ -37,7 +37,7 @@ namespace AEV6
             fichas = usu.GenerarInforme2();
             foreach (FIchaje item in fichas)
             {
-                dgvInformeFichaje.Rows.Add(item.Nif, item.Dia, item.HoraEntrada, item.HoraEntrada, item.Fichado);
+                dgvInformeFichaje.Rows.Add(item.Nif, item.Dia, item.HoraEntrada, item.HoraSalida, item.Fichado);
             }
             
         }
