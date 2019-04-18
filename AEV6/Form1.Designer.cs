@@ -44,19 +44,20 @@
             this.lblSalida = new System.Windows.Forms.Label();
             this.lblNif = new System.Windows.Forms.Label();
             this.dgwPresencia = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraSalida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPresencia = new System.Windows.Forms.Label();
             this.dgvPermanencia = new System.Windows.Forms.DataGridView();
+            this.lblPermanencia = new System.Windows.Forms.Label();
+            this.timerReloj = new System.Windows.Forms.Timer(this.components);
+            this.lblReloj = new System.Windows.Forms.Label();
+            this.NIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFichaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuracionTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblPermanencia = new System.Windows.Forms.Label();
-            this.timerReloj = new System.Windows.Forms.Timer(this.components);
-            this.lblReloj = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraEntrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fichado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbFuncionalidadesBasicas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwPresencia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermanencia)).BeginInit();
@@ -211,7 +212,7 @@
             this.Nombre,
             this.Apellidos,
             this.HoraEntrada,
-            this.HoraSalida});
+            this.fichado});
             this.dgwPresencia.Location = new System.Drawing.Point(572, 73);
             this.dgwPresencia.Margin = new System.Windows.Forms.Padding(2);
             this.dgwPresencia.Name = "dgwPresencia";
@@ -219,26 +220,6 @@
             this.dgwPresencia.Size = new System.Drawing.Size(295, 86);
             this.dgwPresencia.TabIndex = 17;
             this.dgwPresencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.Name = "Apellidos";
-            // 
-            // HoraEntrada
-            // 
-            this.HoraEntrada.HeaderText = "Entrada";
-            this.HoraEntrada.Name = "HoraEntrada";
-            // 
-            // HoraSalida
-            // 
-            this.HoraSalida.HeaderText = "Salida";
-            this.HoraSalida.Name = "HoraSalida";
             // 
             // lblPresencia
             // 
@@ -250,12 +231,12 @@
             this.lblPresencia.Size = new System.Drawing.Size(189, 13);
             this.lblPresencia.TabIndex = 18;
             this.lblPresencia.Text = "Empleados en la empresa actualmente";
-            this.lblPresencia.Visible = false;
             // 
             // dgvPermanencia
             // 
             this.dgvPermanencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermanencia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NIF,
             this.FechaFichaje,
             this.Entrada,
             this.Salida,
@@ -266,26 +247,7 @@
             this.dgvPermanencia.RowTemplate.Height = 28;
             this.dgvPermanencia.Size = new System.Drawing.Size(295, 107);
             this.dgvPermanencia.TabIndex = 19;
-            // 
-            // FechaFichaje
-            // 
-            this.FechaFichaje.HeaderText = "Fecha";
-            this.FechaFichaje.Name = "FechaFichaje";
-            // 
-            // Entrada
-            // 
-            this.Entrada.HeaderText = "Hora Entrada";
-            this.Entrada.Name = "Entrada";
-            // 
-            // Salida
-            // 
-            this.Salida.HeaderText = "Hora salida";
-            this.Salida.Name = "Salida";
-            // 
-            // DuracionTotal
-            // 
-            this.DuracionTotal.HeaderText = "Duracion total";
-            this.DuracionTotal.Name = "DuracionTotal";
+            this.dgvPermanencia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermanencia_CellContentClick);
             // 
             // lblPermanencia
             // 
@@ -311,6 +273,51 @@
             this.lblReloj.Name = "lblReloj";
             this.lblReloj.Size = new System.Drawing.Size(0, 13);
             this.lblReloj.TabIndex = 21;
+            // 
+            // NIF
+            // 
+            this.NIF.HeaderText = "NIF";
+            this.NIF.Name = "NIF";
+            // 
+            // FechaFichaje
+            // 
+            this.FechaFichaje.HeaderText = "Fecha";
+            this.FechaFichaje.Name = "FechaFichaje";
+            // 
+            // Entrada
+            // 
+            this.Entrada.HeaderText = "Hora Entrada";
+            this.Entrada.Name = "Entrada";
+            // 
+            // Salida
+            // 
+            this.Salida.HeaderText = "Hora salida";
+            this.Salida.Name = "Salida";
+            // 
+            // DuracionTotal
+            // 
+            this.DuracionTotal.HeaderText = "Duracion total";
+            this.DuracionTotal.Name = "DuracionTotal";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            // 
+            // HoraEntrada
+            // 
+            this.HoraEntrada.HeaderText = "Entrada";
+            this.HoraEntrada.Name = "HoraEntrada";
+            // 
+            // fichado
+            // 
+            this.fichado.HeaderText = "Fichado";
+            this.fichado.Name = "fichado";
             // 
             // FormPrincipal
             // 
@@ -364,19 +371,20 @@
         private System.Windows.Forms.Label lblSalida;
         private System.Windows.Forms.Label lblNif;
         private System.Windows.Forms.DataGridView dgwPresencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraEntrada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraSalida;
         private System.Windows.Forms.Label lblPresencia;
         private System.Windows.Forms.DataGridView dgvPermanencia;
+        private System.Windows.Forms.Label lblPermanencia;
+        public System.Windows.Forms.Timer timerReloj;
+        private System.Windows.Forms.Label lblReloj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFichaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn Entrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn DuracionTotal;
-        private System.Windows.Forms.Label lblPermanencia;
-        public System.Windows.Forms.Timer timerReloj;
-        private System.Windows.Forms.Label lblReloj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraEntrada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fichado;
     }
 }
 

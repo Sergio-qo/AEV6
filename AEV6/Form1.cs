@@ -92,10 +92,23 @@ namespace AEV6
         {
             UsuarioPermanencia up = new UsuarioPermanencia();
 
-            string HoraEntrada = dtpEntrada.Text;
+            List<UsuarioPermanencia> ups = up.Permanencia(txtNif.Text, dtpEntrada.Text, dtpSalida.Text);
+
+            foreach (UsuarioPermanencia elem in ups)
+            {
+                dgvPermanencia.Rows.Add(elem.Nif, elem.FechaFichaje, elem.HoraEntrada, elem.HoraSalida, elem.HoraCalculada);
+            }
+
+            /*string HoraEntrada = dtpEntrada.Text;
             string HoraSalida = dtpSalida.Text;
             string Nif = txtNif.Text;
-            up.Permanencia(Nif, HoraEntrada, HoraSalida);
+            up.Permanencia(Nif, HoraEntrada, HoraSalida);*/
+
+        }
+
+        private void dgvPermanencia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
